@@ -1,12 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container">
+<div class="container my-4 d-flex flex-wrap gap-3">
+    {% for user in users %}
     <div class="card" style="width: 18rem;">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <h5 class="card-title">{{user.username}}</h5>
+        <a href="#" class="btn btn-primary">Chat</a>
       </div>
     </div>
+    {% empty %}
+    <p class="text-body-secondary">No users found. Create a user from the admin panel.</p>
+    {% endfor %}
 </div>
 {% endblock %}
